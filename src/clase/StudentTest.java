@@ -1,20 +1,42 @@
 package clase;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentTest {
+public class StudentTest {
 
-    @org.junit.jupiter.api.BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() throws Exception {
     }
 
-    @org.junit.jupiter.api.AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() throws Exception {
     }
 
-    public void testConstructorRightName(){
-        String nume= "Ruxandra";
-        Student student= new Student(nume);
+    @Test
+    public void testConstructorRightName() {
+        String nume = "Ion";
+        Student student = new Student(nume);
         assertEquals(nume, student.getNume());
     }
+
+    @Test
+    public void testListAddNota() {
+        Student student = new Student();
+        int nota = 8;
+        student.adaugaNota(nota);
+        assertEquals(nota, student.getNota(0));
+    }
+
+    @Test
+    public void testListSize() {
+        Student student = new Student();
+        int nota = 8;
+        student.adaugaNota(nota);
+        assertEquals(1, student.getNote().size());
+    }
+
 }
